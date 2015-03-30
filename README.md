@@ -16,8 +16,8 @@ $ go run app.go
  - Make email send dynamic information
  - Add pulling down data from a queue
  - Make transporter resolver dynamic
- - Probably a few other things...
  - Add docker file
+ - Probably a few other things...
 
  ## Contributing
 
