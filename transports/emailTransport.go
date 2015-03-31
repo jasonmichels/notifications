@@ -1,6 +1,7 @@
 package transports
 
 import ( 
+    "os"
     "fmt"
     "github.com/sendgrid/sendgrid-go"
 )
@@ -12,15 +13,18 @@ type EmailTransport struct {
 func (transport *EmailTransport) Send() {
     fmt.Println("Send email from email transport")
 
+    username := os.Getenv("SENDGRID_USERNAME")
+    password := os.Getenv("SENDGRID_PASSWORD")
+
     // @TODO Will need to get the username and password from the environment
-    sg := sendgrid.NewSendGridClient("username", "password")
+    sg := sendgrid.NewSendGridClient(username, password)
     
     message := sendgrid.NewMail()
-    message.AddTo("receiver@email.com")
+    message.AddTo("to@test.com")
     message.AddToName("Receipient Name")
     message.SetSubject("SendGrid Testing")
     message.SetText("WIN")
-    message.SetFrom("sender@email.com")
+    message.SetFrom("from@test.com")
 
     if r := sg.Send(message); r == nil {
         fmt.Println("Email sent!")

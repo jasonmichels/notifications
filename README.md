@@ -6,8 +6,8 @@ The project is a work in progress and really should not be used by anyone in it'
 ```sh
 $ git clone git@github.com:jasonmichels/notifications.git
 $ cd notifications
-$ go get ./...
-$ go run app.go
+$ docker build -t notifications .
+$ docker run -e SENDGRID_USERNAME=username -e SENDGRID_PASSWORD=password --publish 6060:8080 --name notifications --rm notifications
 ```
 
 ### Todo's
@@ -16,7 +16,6 @@ $ go run app.go
  - Make email send dynamic information
  - Add pulling down data from a queue
  - Make transporter resolver dynamic
- - Add docker file
  - Probably a few other things...
 
  ## Contributing

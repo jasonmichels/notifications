@@ -1,11 +1,10 @@
 package main
 
-import (
+import (    
     "github.com/jasonmichels/notifications/transports"
 )
 
 func main() {
-
     transportResolver := new(transports.TransportResolver)
 
     // Get a new transport instance that sends notification
