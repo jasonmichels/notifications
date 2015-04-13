@@ -1,14 +1,12 @@
 package transports
 
-import (   
-)
+import ()
 
 type Transporter interface {
-    Send()
+	Send()
 }
 
 type TransportResolver struct {
-
 }
 
 // Resolve the correct message transporter from the data that will get passed in
